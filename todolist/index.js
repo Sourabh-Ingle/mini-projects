@@ -51,7 +51,7 @@
 
 // //         editedId = null; 
 // //         searchValue.value = ``;
-        
+
 // //         showList(list);
 // //     }
 // // }
@@ -99,8 +99,9 @@
 
 let searchValue = document.getElementById("search");
 let todoList = document.querySelector(".search-item");
+let alert = document.querySelector('.alert');
 
-let list =JSON.parse(localStorage.getItem('list')) || [] ;
+let list = JSON.parse(localStorage.getItem('list')) || [];
 let editId = null; // Track the todo being edited
 
 
@@ -109,23 +110,28 @@ let editId = null; // Track the todo being edited
 function handleTodo() {
 
     let text = searchValue.value.trim();
-    if (!text) return; // Prevent empty entries
-    
+    if (!text) {
+        displayAlert("please enter value", "danger");
+        return
+    }; // Prevent empty entries
+
     if (editId !== null) {
         // Editing existing todo
         list = list.map(obj => obj.id === editId ? { ...obj, text } : obj);
         editId = null; // Reset edit tracking
-        localStorage.setItem('list',JSON.stringify(list));
-        
+        localStorage.setItem('list', JSON.stringify(list));
+        displayAlert("item edited successfully", "success");
     } else {
         // Adding new todo
         list.unshift({ id: Date.now(), text });
-        localStorage.setItem('list',JSON.stringify(list));
+        localStorage.setItem('list', JSON.stringify(list));
+        displayAlert("item added susccessfully", "success");
+
     }
 
     searchValue.value = ""; // Clear input
     showList();
-    
+
 }
 showList();
 
@@ -149,10 +155,22 @@ function showList() {
 }
 
 // removing with help of id
-function handleRemove(id,e) {
+function handleRemove(id, e) {
     e.stopPropagation();
     list = list.filter(obj => obj.id !== id);
-    localStorage.setItem('list',JSON.stringify(list));
-
+    localStorage.setItem('list', JSON.stringify(list));
+    displayAlert("item deleted", "danger");
     showList();
+}
+
+function displayAlert(text, action) {
+
+    alert.innerText = text;
+    alert.classList.add(`action-${action}`);
+    setTimeout(() => {
+        alert.innerText = "";
+        alert.classList.remove(`action-${action}`);
+
+
+    }, 2000)
 }
