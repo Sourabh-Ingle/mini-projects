@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.cursorplace {
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+}
+
+.smallCursor {
+    width: 15px;
+    height: 15px;
+}
+
+.bigCursor {
+    width: 75px;
+    height: 75px;
+    filter: blur(35px);
+}

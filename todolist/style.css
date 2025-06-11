@@ -1,0 +1,70 @@
+*,body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.contaner{
+    width: 100wh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container{
+    width: 80vh;
+    height: 80vh;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: rgb(244, 242, 239);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y:auto;
+}
+
+#search{
+    width: 90%;
+    padding: 0.5rem 2rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    font-size: 1.1rem;
+    font-weight: 500;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0,0.2);
+    margin: 2rem 0;
+    color: blueviolet;
+}
+
+.search-item{
+    width: 90%;
+}
+
+.card{
+    margin:1rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0,0.1);
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card .todo{
+    font-size: 1rem;
+    color: rgb(0, 0, 0,0.8);
+    line-height: 1.5rem;
+}
+
+.card .btn{
+    padding: 4px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    color: red;
+    box-shadow: 2px 2px 7px rgba(0,0,0,0.3);
+    font-weight: bolder;
+}
