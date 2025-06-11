@@ -100,33 +100,39 @@
 let searchValue = document.getElementById("search");
 let todoList = document.querySelector(".search-item");
 
-let list = [];
+let list =JSON.parse(localStorage.getItem('list')) || [] ;
 let editId = null; // Track the todo being edited
 
 
 
 //edit and creating todolisr logic (edit logic is tricky)
 function handleTodo() {
+
     let text = searchValue.value.trim();
     if (!text) return; // Prevent empty entries
-
+    
     if (editId !== null) {
         // Editing existing todo
         list = list.map(obj => obj.id === editId ? { ...obj, text } : obj);
         editId = null; // Reset edit tracking
+        localStorage.setItem('list',JSON.stringify(list));
+        
     } else {
         // Adding new todo
         list.unshift({ id: Date.now(), text });
+        localStorage.setItem('list',JSON.stringify(list));
     }
 
     searchValue.value = ""; // Clear input
     showList();
+    
 }
+showList();
 
 function showList() {
     todoList.innerHTML = "";
-    
-    list.map(({ id, text }) => {
+    let localStorageList = JSON.parse(localStorage.getItem('list')) || [];
+    localStorageList.map(({ id, text }) => {
         let ele = document.createElement("div");
         ele.className = "card";
         ele.innerHTML = `
@@ -146,5 +152,7 @@ function showList() {
 function handleRemove(id,e) {
     e.stopPropagation();
     list = list.filter(obj => obj.id !== id);
+    localStorage.setItem('list',JSON.stringify(list));
+
     showList();
 }
