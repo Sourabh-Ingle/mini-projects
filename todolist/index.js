@@ -172,5 +172,5 @@ function displayAlert(text, action) {
         alert.classList.remove(`action-${action}`);
 
 
-    }, 2000)
+    }, 1000)
 }
