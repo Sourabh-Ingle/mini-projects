@@ -113,7 +113,7 @@ html {
     margin: 1rem 0;
 }
 
-.desc{
+.descr{
     font-size: 1rem;
     font-weight: 500;
     list-style: 1.5rem;
@@ -137,5 +137,5 @@ html {
 #newGame:hover{
     color: whitesmoke;
     background-color: rgb(42, 24, 0);
-    
+
 }
