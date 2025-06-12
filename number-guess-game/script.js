@@ -42,7 +42,7 @@ function validateGuess(guess) {
         alertMassage("danger", "please enter number less than 100");
     } else {
             prevGuess.push(guess);
-            displayGuess(guess);
+            displayGuess(guess); //issue resolved
         if (numGuess > maxChance) {
             displayMassage(`Game Over. Random number was ${randomNum}`);
             endGame();
