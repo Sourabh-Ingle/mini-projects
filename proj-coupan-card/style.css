@@ -1,0 +1,257 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    /* Now 1rem equals 10px */
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.card {
+    position: relative;
+    width: 50%;
+    min-height: 30%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 1.5rem;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.card .title {
+    font-size: 2rem;
+    font-weight: 750;
+    line-height: 3rem;
+    color: #9d4de6;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.card .coupon-input {
+    padding: 0.5rem 2rem;
+    border: 1px solid blue;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.card .card-desc {
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 2rem;
+    color: rgb(50, 50, 50);
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+}
+
+.card .open-coupon {
+    font-size: 1.5rem;
+    font-weight: 650;
+    line-height: 2rem;
+    color: rgb(88, 88, 227);
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    border: 1px solid blue;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all linear 0.2s;
+    margin-right: 1rem;
+}
+
+.card .open-coupon:hover {
+    background-color: rgb(88, 88, 227);
+    color: #fff;
+}
+
+.card .apply-coupon {
+    font-size: 1.5rem;
+    font-weight: 650;
+    line-height: 2rem;
+    background-color: rgb(88, 88, 227);
+    color: #fff;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    border: 1px solid blue;
+    background-color: rgb(88, 88, 227);
+    cursor: pointer;
+    transition: all linear 0.2s;
+    margin-right: 1rem;
+}
+
+
+.card .apply-coupon:hover {
+    background-color: #fff;
+    color: rgb(88, 88, 227);
+}
+
+.price-desc {
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 2rem;
+    color: rgb(50, 50, 50);
+    margin-bottom: 0.5rem;
+}
+
+.cancel-price {
+    color: grey;
+    text-decoration: line-through;
+}
+
+.discount-price {
+    font-weight: bold;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coupon-card {
+    display: none;
+    position: absolute;
+    left: -100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #7158fe, #9d4de6);
+    color: #fff;
+    border-radius: 1.2rem;
+    width: 50%;
+    min-height: 30rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 3rem;
+    z-index: 11;
+    transition: all ease-in-out 0.5s;
+}
+
+.coupan-active {
+    left: 50%;
+}
+
+.coupon-close {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    border-radius: 50%;
+    color: #e7e3ec;
+    background-color: #7158fe;
+    border: 1px solid #e7e3ec;
+    padding-block: 2.5px;
+    padding-inline: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all linear 0.2s;
+}
+
+.coupon-close:hover {
+    background-color: #e7e3ec;
+    color: #7158fe;
+    border: 1px solid transparent;
+}
+
+.logo-title {
+    padding: 2rem 1rem;
+    background-color: black;
+    color: #fff;
+    border-radius: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 650;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.desc {
+    font-size: 2rem;
+    line-height: 2.52rem;
+    margin-bottom: 2rem;
+}
+
+.coupon-validity {
+    font-size: 1.25rem;
+    line-height: 2.52rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.coupon-row {
+    margin-bottom: 2rem;
+}
+
+.coupon-row .copy {
+    display: inline-flex;
+    width: 11rem;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #fff;
+    font-size: 1.5rem;
+    font-weight: 750;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#copy-btn {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transition: all linear 0.2s;
+}
+
+#copy-btn:hover {
+    color: #7158fe;
+    background: #fff;
+    border: 1px solid #fff;
+}
+
+
+.alert-message {
+    position: absolute;
+    right: -50%;
+    top: 1rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    font-weight: bolder;
+    width: 100%;
+    padding: 0.25rem 0.2rem;
+    border-radius: 2px;
+    text-align: center;
+    transition:all ease-in-out 0.1s;
+}
+
+.action-danger {
+    right: 0rem;
+    top: 0.5rem;
+    background-color: rgb(255, 135, 135);
+    color: rgb(117, 1, 1);
+}
+
+.action-success {
+    right: 0rem;
+    top: 0.5rem;
+    background-color: #d4edda;
+    color: #155724;
+}
