@@ -9,6 +9,7 @@ let priceDesc = document.querySelector('.price-desc');
 let price = document.querySelector('.price');
 let disCount = document.querySelector('.discount').innerText;
 let alertMessage = document.querySelector('.alert-message');
+let couponContainer = document.querySelector('.coupon-container');
 
 openCoupon.addEventListener('click', handleOpenCoupon);
 copyBtn.addEventListener('click', handleCopyCoupon);
@@ -16,11 +17,12 @@ applyCoupon.addEventListener('click', handleDiscontedPrice);
 
 
 function handleOpenCoupon() {
-    couponCard.classList.add('coupan-active');
+    couponContainer.classList.add('coupon-active');
 }
 
 function handleCloseCoupon() {
-    couponCard.classList.remove('coupan-active');
+    couponContainer.classList.remove('coupon-active');
+    
 }
 
 function handleCopyCoupon() {

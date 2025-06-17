@@ -11,32 +11,31 @@
 <body>
     <div class="container">
         <div class="card">
-
             <p class="alert-message"></p>
-
             <h2 class="title">try your first journey</h2>
             <input type="text" id="coupon-input" class="coupon-input" placeholder="apply coupon here">
             <p class="price-desc">Your price : <span class="price">200</span> Rs</p>
-
             <p class="card-desc">please check your discount here</p>
             <div class="btns">
                 <button class="open-coupon">your coupon</button>
                 <button class="apply-coupon">apply coupon</button>
             </div>
-
-
         </div>
-        <div class="coupon-card">
-            <button class="coupon-close" onclick="handleCloseCoupon()">X</button>
-            <h2 class="logo-title">ubere</h2>
-            <h4 class="desc"><span class="discount">30</span>% Flat offer on your first ride within city using credit
-                card</h4>
-            <div class="coupon-row">
-                <span id="copy-code" class="copy">DAL20</span>
-                <span id="copy-btn" class="copy">Copy Code</span>
+
+        <div class="coupon-container">
+            <div class="coupon-card">
+                <button class="coupon-close" onclick="handleCloseCoupon()">X</button>
+                <h2 class="logo-title">ubere</h2>
+                <h4 class="desc"><span class="discount">30</span>% Flat offer on your first ride within city using
+                    credit card</h4>
+                <div class="coupon-row">
+                    <span id="copy-code" class="copy">DAL20</span>
+                    <span id="copy-btn" class="copy">Copy Code</span>
+                </div>
+                <p class="coupon-validity">Valid till : 20 Dec,2025</p>
             </div>
-            <p class="coupon-validity">Valid till : 20 Dec,2025</p>
         </div>
+
     </div>
     <script src="script.js"></script>
 </body>
