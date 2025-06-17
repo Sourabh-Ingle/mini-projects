@@ -58,17 +58,20 @@ function checkGuess(guess) {
         alertMassage("success", `congratulations!!! You won.`);
         endGame();
     } else if (guess < randomNum) {
-        displayMassage(`Yor guess is tooo low than number.`)
+        displayMassage(`Yor guess is tooo low than number.`);
+        alertMassage("danger", `Yor guess is TOOO LOW than number.`);
     }
     else {
-        displayMassage(`Yor guess is tooo high than number.`)
+        displayMassage(`Yor guess is tooo high than number.`);
+        alertMassage("danger", `Yor guess is TOO0 HIGH than number.`);
+
     }
 }
 
 function displayGuess(guess) {
     userInput.value = '';
      guessSlot.innerText = prevGuess.join(', ');
-    // guessSlot.innerText += `${guess}, `;
+    // guessSlot.innerText += `${guess}, `; //this is also one-method
     
     remaining.innerText = `${maxChance - numGuess}`;
     numGuess++;
@@ -111,7 +114,6 @@ function endGame() {
 function alertMassage(action, massage) {
     alert.classList.add(`action-${action}`);
     alert.innerText = `${massage}`;
-
     setTimeout(() => {
         alert.classList.remove(`action-${action}`);
         alert.innerText = ``;
