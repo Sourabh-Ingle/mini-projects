@@ -49,7 +49,7 @@ function handleAlert(action, text) {
     setTimeout(() => {
         alert.innerText = "";
         alert.classList.remove(`action-${action}`);
-    }, 1000)
+    }, 2000)
 }
 
 newStart.addEventListener('click',()=>{

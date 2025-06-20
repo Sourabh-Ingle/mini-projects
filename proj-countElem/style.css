@@ -72,10 +72,10 @@
     letter-spacing: 1px;
     text-transform: capitalize;
     font-weight: bolder;
-    margin:1rem 0 ;
+    margin:1rem 0;
     width:100%;
     padding: 0.25rem 0;
-    border-radius: 10px; 
+    border-radius: 4px;
 }
 
 .action-danger{
