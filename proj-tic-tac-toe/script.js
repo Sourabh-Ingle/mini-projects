@@ -18,7 +18,7 @@ const winPatterns = [
 
 function checkDraw() {
     let allFilled = Array.from(boxes).every(box => box.innerText !== "");
-    
+
     if (allFilled) {
         showWinner("danger", "It's a draw!");
         disabledBoxes();
@@ -48,7 +48,7 @@ boxes.forEach((box) => {
             turn = true;
         }
         box.disabled = true;
-       
+
         checkWinner();
         checkDraw();
     })
@@ -57,6 +57,9 @@ boxes.forEach((box) => {
 function checkWinner() {
 
     for (let pattern of winPatterns) {
+        //took first patern like [0,1,2] and takinig values from that position from 
+        // boxes like 0 th position what is player (x or o) and 
+        // then compair it with each other if it is same then that player is winner
         let pos1Val = boxes[pattern[0]].innerText;
         let pos2Val = boxes[pattern[1]].innerText;
         let pos3Val = boxes[pattern[2]].innerText;
@@ -68,7 +71,7 @@ function checkWinner() {
             }
         }
     }
-} 
+}
 
 
 
@@ -89,4 +92,5 @@ resetBtn.addEventListener('click', handleResetGame);
 function handleResetGame() {
     turn = true;
     enableBoxes();
+
 }
