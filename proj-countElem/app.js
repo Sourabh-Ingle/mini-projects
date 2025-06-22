@@ -31,15 +31,13 @@ function handleCountElem(num) {
         countObj[item] = (countObj[item] || 0) + 1;
     })
     let stringObj = JSON.stringify(countObj);
-    handleShowOutput(showResult, stringObj ,0)
-
+    handleShowOutput(showResult, stringObj , true)
 }
 
 function handleShowOutput(eleVal, num,val) {
-    if (val===0) {
+    if (val) {
         eleVal.innerText = ``;
     }
-
     eleVal.innerText += ` ${num} ,`;
 }
 
