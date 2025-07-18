@@ -68,3 +68,29 @@ function secondLargest(arr) {
 let secondLargestNum = secondLargest(arr4);
 console.log("The second largest number is : ", secondLargestNum);
 console.log("The largest 3 number is : ", threeLargestNumObj);
+
+
+
+// other optimised and resusable code
+// 1.we use set for unique value
+// 2.then sort the array in reverse order
+// 3. for nth term, we use loop as arr is reverse sorted 
+function getTopNUniqueValues(arr, n) {
+    // Remove duplicates and sort descending
+    const uniqueSorted = [...new Set(arr)].sort((a, b) => b - a);
+
+    // Build a result object dynamically
+    const result = {};
+
+    for (let i = 0; i < n; i++) {
+        result[ `00${i + 1}`] = uniqueSorted[i] ?? undefined;
+    }
+
+    return result;
+}
+
+const top3 = getTopNUniqueValues(arr4, 3);
+const top4 = getTopNUniqueValues(arr4, 4);
+
+console.log("Top 3:", top3);
+console.log("Top 4:", top4);
