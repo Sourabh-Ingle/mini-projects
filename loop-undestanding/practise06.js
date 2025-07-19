@@ -1,8 +1,10 @@
 
-// Given an integer array nums sorted in non-decreasing order, 
-// remove the duplicates in-place such that each unique element appears only once. 
-// The relative order of the elements should be kept the same. 
+// Given an integer array nums sorted in 'non-decreasing' order,
+// remove the duplicates 'in-place' such that each unique element appears only once.
+// The relative order of the elements should be kept the same.
 // Then return the number of unique elements in nums.
+
+// it is non-decreasing order means increasing order with duplicate value
 
 
 const duplicateArr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
