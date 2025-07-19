@@ -28,6 +28,10 @@ const arr4 = [1, 2, 3, 9, 6, 6, 10, 10, 9, 10];
 const threeLargestNumObj = { "first": undefined, "second": undefined, "third": undefined };
 
 function secondLargest(arr) {
+    if (arr.length < 2) {
+        console.log("Length of aray is less than 2,so there is no second highest!!!");
+        return;
+    }
     let largestNum = arr[0];
     let secondLargestNumber;
     let thirdLargestNumber;
@@ -83,7 +87,7 @@ function getTopNUniqueValues(arr, n) {
     const result = {};
 
     for (let i = 0; i < n; i++) {
-        result[ `00${i + 1}`] = uniqueSorted[i] ?? undefined;
+        result[ `${i + 1}`] = uniqueSorted[i] ?? undefined;
     }
 
     return result;
@@ -94,3 +98,46 @@ const top4 = getTopNUniqueValues(arr4, 4);
 
 console.log("Top 3:", top3);
 console.log("Top 4:", top4);
+
+
+// another type of code for dynamic and optimise way
+
+function getTopNUniqueOptimized(arr, n) {
+    const topN = new Array(n).fill(Number.NEGATIVE_INFINITY);
+
+    arr.forEach(num => {
+        // Skip if already present in topN
+        let exists = false;
+        for (let i = 0; i < n; i++) {
+            if (topN[i] === num) {
+                exists = true;
+                break;
+            }
+        }
+        if (exists) return;
+
+        // Compare with topN values
+        for (let i = 0; i < n; i++) {
+            if (num > topN[i]) {
+                // Shift lower values down
+                for (let j = n - 1; j > i; j--) {
+                    topN[j] = topN[j - 1];
+                }
+                topN[i] = num;
+                break;
+            }
+        }
+    });
+
+    // Label output
+    const labels = ["first", "second", "third", "fourth", "fifth"];
+    const result = {};
+    for (let i = 0; i < n; i++) {
+        result[labels[i] || `#${i + 1}`] = topN[i] === Number.NEGATIVE_INFINITY ? undefined : topN[i];
+    }
+
+    return result;
+}
+
+const arr6 = [1, 2, 3, 9, 6, 6, 10, 10, 9, 10];
+console.log(getTopNUniqueOptimized(arr6, 4));
