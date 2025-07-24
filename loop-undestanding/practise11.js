@@ -1,5 +1,5 @@
 
-
+// factorial problem
 
 function fact(n) {
     if (n === 0) {
@@ -9,5 +9,5 @@ function fact(n) {
         return 1
     }
 
-    return fact(n-1)*fact(n-2)
+    return n*fact(n-1)
 }
