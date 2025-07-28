@@ -1,5 +1,5 @@
 // BINARY SEARCH
-
+// CONDITION ---> ARRAY IS ALWAYS IN SORTED FORM LIKE INCREASERING OR DECRESING
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function binarySearch(a, num) {
