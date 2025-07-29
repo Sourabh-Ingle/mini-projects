@@ -17,4 +17,4 @@ function insertionSort(a) {
     return a
 }
 
-console.log(insertioSort(arr));
+console.log(insertionSort(arr));
