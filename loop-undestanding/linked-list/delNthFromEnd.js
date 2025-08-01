@@ -12,7 +12,8 @@
 
 // Input: head = [1, 2], n = 1
 // Output: [1]
-
+// TWO PASS AS WE USES 2 LOOPS 
+// TIME COMPLEXITY O(N)  SPACECOMPLEXICTY O(1)
 var removeNthFromEnd = function (head, n) {
     let sentinal = new ListNode();
     sentinal.next = head;
@@ -57,6 +58,25 @@ var removeNthFromEnd = function (head, n) {
     }
 
     return sentinal.next
+};
+//  TWO PASS SOLUTION
 
+// ONE PASS SOLUTION (ON;Y BY USING ONE LOOP
 
+var removeNthFromEnd = function (head, n) {
+    let sentinal = new ListNode();
+    sentinal.next = head;
+    let first = sentinal;
+    let second = sentinal;
+    for (let i = 0; i < n; i++) {
+        first = first.next;
+    }
+    while (first.next) {
+        second = second.next;
+        first = first.next;
+    }
+
+    second.next = second.next.next;
+
+    return sentinal.next;
 };
