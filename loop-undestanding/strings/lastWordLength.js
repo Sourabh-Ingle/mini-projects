@@ -17,7 +17,24 @@
 // Input: s = "luffy is still joyboy"
 // Output: 6
 // Explanation: The last word is "joyboy" with length 6.
+// MOST EFFECTIVE WAY ONLY ONE LOOP;
 
+let lengthLastWord = (s) => {
+    let count = 0;
+    let n = s.length - 1;
+    while (n >= 0) {
+        if (s[n] !== " ") {
+            count++;
+        } else if (count > 0) {
+            break;
+        }
+        n--
+    }
+
+    return count;
+}
+
+// TWO LOOP IS USED OVER HERE
 let str = "  fly  ";
 let lastWordLength = (s) => {
     let n = s.length - 1;
