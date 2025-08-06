@@ -27,14 +27,20 @@ let lastWordLength = (s) => {
         }
         n--;
     }
+    
     let count = 0;
     while (n >= 0) {
-        if (s[n] !== " ") {
-            count++;
-            n--;
-        } else {
-            break;
-        }
+        // if (s[n] !== " ") {
+        //     count++;
+        //     n--;
+        // } else {
+        //     break;
+        // }
+
+        if (s[n] === " ") return
+        count++;
+        n--;   
+        
     }
     return count;
 }
