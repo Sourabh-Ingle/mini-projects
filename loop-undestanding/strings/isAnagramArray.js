@@ -24,10 +24,36 @@
 // 0 <= strs[i].length <= 100
 // strs[i] consists of lowercase English letters.
 
+// OPTIMISE SOLUTION
+let groupAnagrams = (strs) => {
+    let map = {};
+    for (let i = 0; i < strs.length; i++){
+        let s = strs[i];
+        let freqArr = new Array(26).fill(0);
+
+        for (let j = 0; j < s.length; j++){
+            let index = s[i].charCodeAt() - "a".charCodeAt();
+            freqArr[index]++;
+        }
+        let key = "";
+        for (let j = 0; j < 26; j++){
+            key += String.fromCharCode(k) + freqArr[k];
+        }
+        if (!map[key]) {
+            map[key] = [s];
+        } else {
+            map[key].push(s);
+        }
+    }
+
+    return [...Object.values(map)];
+
+}
 
 
 // NOT OPTIMISE SOLUTION
 // TIME COMPLEXITY O(N*MLOGM); HERE N->length of array and M->length of string inside array
+
 let isAnagramGroup = (strs) => {
     let map = {};
     for (let i = 0; i < strs.length; i++){
