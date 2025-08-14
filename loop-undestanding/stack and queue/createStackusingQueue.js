@@ -34,6 +34,41 @@
 // At most 100 calls will be made to push, pop, top, and empty.
 // All the calls to pop and top are valid.
 
+// USING ONLY ONE QUEUE
+let Mystacks = () => {
+    this.q1 = [];
+}
+
+// push
+Mystacks.prototype.push = (x) => {
+    this.q1.push(x);
+}
+// pop
+Mystacks.prototype.pop = () => {
+    let n = this.q1.length;
+    for (let i = 0; i < n - 1; i++){
+        this.q1.push(this.q1.shift())
+    }
+    return this.q1.shift();
+}
+// top
+Mystacks.prototype.top = () => {
+    let n = this.q1.length;
+    for (let i = 0; i < n - 1; i++) {
+        this.q1.push(this.q1.shift())
+    }
+    let front = this.q1.shift();
+    this.q1.push(front);
+    return front;
+}
+// isEmpty
+Mystacks.prototype.empty = function () {
+    return this.q1.length === 0;
+}
+
+
+
+// USING TWO QUEUES
 let Mystack = () => {
     this.q1 = [];
     this.q2 = [];
