@@ -37,6 +37,25 @@
 // s[i] is either '(' or ')'.
 // s is a valid parentheses string.
 
+//optimise answer in terms of space complexity
+
+let removeOuterPara=(s) => {
+    let level = 0;
+    let ans = "";
+    for (let i = 0; i < s.length; i++){
+        if (s[i] === "(") {
+            ans += (level > 1) ? s[i] : "";
+            level++;
+        } else {
+            ans += (level > 1) ? s[i] : "";
+            level--;
+        }
+    }
+    return ans;
+}
+
+
+// 
 let removeOuterString = (s) => {
     let stack = [];
     let ans = "";
