@@ -44,8 +44,9 @@ let removeOuterPara=(s) => {
     let ans = "";
     for (let i = 0; i < s.length; i++){
         if (s[i] === "(") {
+            level++;  //first we have to level++ and then store answer in ans
             ans += (level > 1) ? s[i] : "";
-            level++;
+            
         } else {
             ans += (level > 1) ? s[i] : "";
             level--;
