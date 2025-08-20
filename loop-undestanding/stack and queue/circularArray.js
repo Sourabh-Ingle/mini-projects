@@ -20,6 +20,32 @@
 // 1 <= nums.length <= 104
 // - 109 <= nums[i] <= 109
 
+// with same array(optimise way)
+let circleArray = (arr) => {
+    let stack = [];
+    let n = arr.length;
+    let res = new Array(n).fill(-1);
+
+    stack.push(arr[n - 1]);
+    res[n - 1] = -1;
+
+    for (let i = (2n) - 2; i >= 0; i--){
+        while (stack.length) {
+            let top = stack[stack.length - 1];
+            if (arr[i % n] < top) {
+                res[i] = top;
+                break;
+            } else {
+                stack.pop();
+            }
+        }
+        stack.push(arr[i]);
+    }
+    return res
+}
+
+
+// with double the length of array
 let CurcularArray = (nums) => {
     let arr = [...nums, ...nums];
     let stack = [];
