@@ -22,10 +22,24 @@
 //     - 109 <= nums[i] <= 109
 //     - 109 <= target <= 109
 // Only one valid answer exists
-// 
+//
 
 
-// 
+// time compleity=o(n)
+let twoSUM = (arr, target) => {
+    let n = arr.length;
+    let map={}
+    for (let i = 0; i < n; i++){
+        map[arr[i]] = i;
+    }
+
+    for (let j = 0; j < n; j++){
+        let diff = target - arr[j];
+        if (map[diff] && map[diff] !== i) {
+            return [j,map[diff]]
+        }
+    }
+}
 
 
 //simple solution->brutforce solution using slide elemtent
