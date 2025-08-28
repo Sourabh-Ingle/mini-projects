@@ -36,7 +36,7 @@ let twoSUM = (arr, target) => {
     for (let j = 0; j < n; j++){
         let diff = target - arr[j];
         if (map[diff] && map[diff] !== i) {
-            return [j,map[diff]]
+            return [j, map[diff]];
         }
     }
 }
