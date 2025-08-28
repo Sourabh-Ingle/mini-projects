@@ -45,7 +45,9 @@ let twoSUM = (arr, target) => {
 //simple solution->brutforce solution using slide elemtent
 var twoSum = function (nums, target) {
     let n = nums.length;
+    // here first loop is for first slide element
     for (let i = 0; i < n - 1; i++) {
+        // here second loop is for second slide element
         for (let j = i + 1; j < n; j++) {
             let sum = nums[i] + nums[j];
             if (sum === target) {
