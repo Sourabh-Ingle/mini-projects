@@ -28,7 +28,7 @@
 // time compleity=o(n)
 let twoSUM = (arr, target) => {
     let n = arr.length;
-    let map={}
+    let map = {};
     for (let i = 0; i < n; i++){
         map[arr[i]] = i;
     }
