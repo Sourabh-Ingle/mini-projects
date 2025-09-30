@@ -46,6 +46,7 @@ var twoSum = function (arr, x, ans) {
             i++;
         } else {
             ans.push([arr[i], arr[j], arr[x]]);
+            
             i++;
             j--;
             // Skip duplicates for the second element
