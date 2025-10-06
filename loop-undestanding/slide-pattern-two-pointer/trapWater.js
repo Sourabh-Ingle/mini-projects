@@ -17,6 +17,29 @@
 // 1 <= n <= 2 * 104
 // 0 <= height[i] <= 105
 
+
+// MOST OPTIMISE WAY
+var trap = function (height) {
+    let left = 0, right = height.length - 1;
+    let left_max = height[left];
+    let right_max = height[right];
+    let water = 0;
+
+    while (left < right) {
+        if (left_max <= right_max) {
+            left++;
+            left_max = Math.max(left_max, height[left]);
+            water += left_max - height[left];
+        } else {
+            right--;
+            right_max = Math.max(right_max, height[right]);
+            water += right_max - height[right];
+        }
+    }
+
+    return water;
+};
+
 var trap = function (arr) {
     let n = arr.length;
     let maxL = maxR = [];
