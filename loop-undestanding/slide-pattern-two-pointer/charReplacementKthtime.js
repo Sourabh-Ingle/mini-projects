@@ -21,6 +21,26 @@
 // s consists of only uppercase English letters.
 // 0 <= k <= s.length
 
+//  optimised solution from leetcode solution
+var charReplacement = function (s, k) {
+    let i = j = 0;
+    let map = {};
+    let maxW = currW = 0;
+
+    while (j < s.length) {
+        map[s[j]] = (map[s[j]] || 0) + 1;
+        currW = Math.max(currW, map[s[j]]);
+        while (((j - i + 1) - currW) > k) {
+            map[s[i]]--;
+            i++
+        }
+        maxW = Math.max(maxW, j - i + 1);
+        j++;
+    }
+    return maxW;
+}
+
+// namaste javascript solution 
 
 var characterReplacement = function (s, k) {
     let i = j = 0;
@@ -56,3 +76,6 @@ var validate = function (map, k) {
     }
     return ((totalCount - maxCount) <= k)
 }
+
+
+
