@@ -19,3 +19,16 @@ var preorderTraversal = function (root) {
     traverse(root)
     return ans
 }
+
+// ITERATIVE WAY TO HANDLE THIS 
+var preorderTraversal = function (root) { 
+    if (!root) return [];
+    let ans = [];
+    let stack = [root];
+    while (stack.lenght) {
+        let curr = stack.pop();
+        ans.push(curr.val);
+        curr.right && stack.push(curr.right);
+        curr.left && stack.push(curr.left);
+    }
+}
