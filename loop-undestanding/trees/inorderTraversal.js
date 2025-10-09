@@ -15,3 +15,22 @@ var inorderTraversal = function (root) {
 
     return ans;
 }
+
+var inorderTraversal = function (root) {
+    if(!root)return []
+    let ans = [];
+    let stack = [];
+    let curr = root;
+    while (stack.length || curr) {
+        while (curr) {
+            stack.push(curr.left);
+            curr = curr.left;
+        }
+        curr = stack.pop(); 
+        ans.push(curr.val);
+        curr = curr.right;
+    }
+
+    return ans;
+
+}

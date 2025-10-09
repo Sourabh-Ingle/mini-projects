@@ -23,12 +23,17 @@ var preorderTraversal = function (root) {
 // ITERATIVE WAY TO HANDLE THIS 
 var preorderTraversal = function (root) { 
     if (!root) return [];
-    let ans = [];
-    let stack = [root];
-    while (stack.lenght) {
-        let curr = stack.pop();
-        ans.push(curr.val);
-        curr.right && stack.push(curr.right);
-        curr.left && stack.push(curr.left);
+    let s1 = [root];
+    let s2 = [];
+    while (s1.length) {
+        let curr = s1.pop();
+        s2.push(curr);
+        curr.left && s1.push(curr.left);
+        curr.right && s1.push(curr.right);
     }
+
+    while (s2.length) {
+        ans.push(s2.pop().val)
+    }
+    return ans
 }
