@@ -16,7 +16,7 @@ var inorderTraversal = function (root) {
     return ans;
 }
 
-var inorderTraversal = function (root) {
+var inOrderTraversal = function (root) {
     if(!root)return []
     let ans = [];
     let stack = [];

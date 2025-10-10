@@ -20,3 +20,18 @@ var preorderTraversal = function (root) {
     return ans
 }
 
+// ITERATIVE WAY TO HANDLE PREORDER TRAVESE TREE
+
+var preOrderTraversal = function (root) {
+    if (!root) return [];
+    let stack = [root];
+    let ans = [];
+    
+    while (stack.length) {
+        let curr = stack.pop();
+        ans.push(curr.value);
+        curr.right && stack.push(curr.right);
+        curr.left && stack.push(curr.left);
+    }
+}
+
