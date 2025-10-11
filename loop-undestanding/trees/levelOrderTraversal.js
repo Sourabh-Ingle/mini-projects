@@ -42,4 +42,16 @@ var levelOrder = function (root) {
 }
 
 
+// RECURSSIVE WAY
+var levelOrder = function (root) {
+    if (!root) return [];
+    let ans = []
+    function travers(curr, level) {
+        if (!ans[level]) return ans[level] = [];
+        ans[level].push(curr.val);
+        curr.left && travers(curr.left, level + 1);
+        curr.right && travers(curr.right, level + 1);
+    }
 
+    return ans;
+}
