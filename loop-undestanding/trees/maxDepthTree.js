@@ -27,3 +27,11 @@ var maxDepth = function (root) {
 
     return maxLen;
 }
+
+// BOTTOM TO TOP APPROCH
+var maxDepth = function (root) {
+    if (!root) return 0;
+    let maxLeft = maxDepth(root.left);
+    let maxRight = maxDepth(root.right);
+    return 1 + Math.max(maxLeft,maxRight)
+}
