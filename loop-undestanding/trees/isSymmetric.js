@@ -15,6 +15,7 @@
 // The number of nodes in the tree is in the range[1, 1000].
 // - 100 <= Node.val <= 100
 
+// RECCURSIVE WAY
 var isSymmetric = function (root) {
     let isSimilar = function (left, right) {
         if (!left && !right) return true;
