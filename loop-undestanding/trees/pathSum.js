@@ -45,3 +45,15 @@ var hasPathSum = function (root, targetSum) {
     travese(root, 0);
     return ans;
 }
+
+// BOTTOM TO TOP APPROCH
+var hasPathSum = function (root, targetSum) {
+    if (!root) return false;
+    if (!root.left && !root.right) {
+        return root.val===targetSum
+    }
+
+    let leftPath = hasPathSum(root.left, targetSum - root.val);
+    let rightPath = hasPathSum(root.right, targetSum - root.val);
+    return leftPath || rightPath
+}
