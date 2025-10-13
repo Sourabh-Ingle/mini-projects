@@ -27,3 +27,22 @@ var isSymmetric = function (root) {
     }
     return isSimilar(root.left,root.right)
 }
+
+// ITERATIVE WAY
+// we are solving this question by using level order travese tree;
+// so we are using queue over here
+var isSymmetric = function (root) {
+    let q = [root.left, root.right];
+
+    while (q.length) {
+        let p1 = q.shift();
+        let p2 = q.shift();
+
+        if (!p1 && !p2) continue;
+        if (p1 || !p2) return false;
+        if (p1.val !== p2.val) return false;
+        q.push(p1.left, p2.righr);
+        q.push(p1.right,p2.left)
+    }
+
+}
