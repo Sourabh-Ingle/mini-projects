@@ -18,11 +18,32 @@
 // - 104 <= root.val <= 104
 //     - 104 <= subRoot.val <= 104
 
+// USING HASH MAP STRING====>  hash mapping and  serialise concept 
+var subTree = function (root, subRoot) {
+    let hashRoot = serialise(root);
+    let hashSubRoot = serialise(subRoot);
+
+    return hashRoot.includes(hashSubRoot);
+}
+
+var serialise = function (root) {
+    let hashString = "";
+    let travese = function (curr) {
+        if (!curr) {
+            hashString = hashString + '-#-';
+            return;
+        }
+        hashString=hashString + '-' + curr.val + "-"
+        travese(curr.left);
+        travese(curr.right);
+    }
+    travese(root);
+    return hashString;
+}
 
 
 
-
-
+//==============================================================
 
 // this solution is slitely slow as more recursion is there
 var subTree = function (root, subRoot) {
