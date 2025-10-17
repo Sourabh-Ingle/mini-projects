@@ -26,6 +26,7 @@
 // The number of nodes in the tree is in the range[0, 100].
 // - 100 <= Node.val <= 100
 
+//WITH BREATH FIRST APPROCH FOR ITERATIVE WAY
 var rightSideView = function (root) {
     if (!root) return [];
     let ans = [];
@@ -36,10 +37,39 @@ var rightSideView = function (root) {
             let curr = q.shift();
 
             i == 0 && ans.push(curr.val);
-            
+
             curr.right && q.push(curr.right);
             curr.left && q.push(curr.left);
         }
     }
     return ans;
 }
+
+// RECURSIVE WAY MAKING TREE (LEVEL TRAVERSE) TRAVERSE IN LEFT SIDE WAY
+var rightSideView = function (root) {
+    let ans = [];
+    let traverse = (curr, level) => {
+        if (!curr) return;
+        ans[level] = curr.val;
+        curr.left && traverse(curr.left);
+        curr.right && traverse(curr.right);
+    }
+    traverse(root,0)
+    return ans;
+}
+
+// RECURSIE WAY - TREE (LEVEL TRAVERSE) TRAVERSE IN RIGHT SIDE WAY
+var rightSideView = function (root) {
+    let ans = [];
+    let traverse = (curr, level) => {
+        if (!curr) return;
+        if (ans.length === level) {
+            ans.push(curr.val);
+        }
+        curr.right && traverse(curr.right, level + 1);
+        curr.left && traverse(curr.left, level + 1);
+    }
+    traverse(root, 0);
+    return ans;
+}
+
