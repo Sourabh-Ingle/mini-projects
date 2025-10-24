@@ -30,7 +30,7 @@ var isValidBST = function (root) {
         if((lo!==null && lo >=curr.val)||(hi!==null && hi <=curr.val))return false
 
         let isLeftBST = isBST(curr.left, lo, curr.val);
-        let isRightBST = isBST(curr.rigth, curr.val, hi);
+        let isRightBST = isBST(curr.right, curr.val, hi);
 
         return isLeftBST && isRightBST
         
@@ -39,4 +39,15 @@ var isValidBST = function (root) {
 
 
     return ans;
+}
+
+// directly we make this 
+var isValidBST = function (curr,lo=null,hi=null) {
+    if (!curr) return true;
+        if((lo!==null && lo >=curr.val)||(hi!==null && hi <=curr.val))return false
+
+    let isLeftBST = isValidBST(curr.left, lo, curr.val);
+    let isRightBST = isValidBST(curr.right, curr.val, hi);
+
+    return isLeftBST && isRightBST
 }
