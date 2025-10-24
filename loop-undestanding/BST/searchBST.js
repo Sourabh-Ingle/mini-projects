@@ -19,6 +19,7 @@
 // root is a binary search tree.
 // 1 <= val <= 107
 
+// TOP DOWN APPROCH 
 var searchBST = (root, val) => {
     let ans = null;
     let traverse = (curr) => {
@@ -34,4 +35,13 @@ var searchBST = (root, val) => {
     }
     traverse(root);
     return ans;
+}
+
+// BOTTOM UP APPROCH
+var searchBST = (root, val) => {
+    if (!root) return root;
+
+    if (root.val === val) return root;
+
+    return root.val < val ? searchBST(root.right, val) : searchBST(root.left, val);
 }
