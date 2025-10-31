@@ -39,9 +39,9 @@ var searchBST = (root, val) => {
 
 // BOTTOM UP APPROCH
 var searchBST = (root, val) => {
-    if (!root) return root;
+    if (!root || root.val===val) return root;
 
-    if (root.val === val) return root;
+    // if (root.val === val) return root;
 
     return root.val < val ? searchBST(root.right, val) : searchBST(root.left, val);
 }
