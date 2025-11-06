@@ -35,9 +35,7 @@ var isValidBST = function (root) {
         return isLeftBST && isRightBST
         
     }
-    ans=isBST(root,null,null)
-
-
+    ans = isBST(root, null, null);
     return ans;
 }
 
