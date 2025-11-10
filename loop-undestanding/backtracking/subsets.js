@@ -22,7 +22,7 @@ var subsets = function (arr) {
     let ans = [];
     let backtrack = (path,start) => {
         ans.push([...path]);
-        for (let i = start; i < ans.length; i++){
+        for (let i = start; i < arr.length; i++){
             path.push(arr[i]);
             backtrack(path, i + 1);
             path.pop();
